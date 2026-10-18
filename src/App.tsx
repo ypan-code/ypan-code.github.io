@@ -90,6 +90,7 @@ const talks = [
   {
     title: "The classical Bauer-Furuta invariant",
     event: "Gauge Theory Seminar",
+    location: "University of Southern California",
     date: "Nov. 2025",
     link: null,
     notes: "./notes/Bauer_Furuta_talk.pdf"
