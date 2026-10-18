@@ -115,7 +115,7 @@ const service = [
 
 const sectionHeading = "text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12";
 
-const PaperCard = ({ paper, idx }: { paper: typeof projects[number]; idx: number }) => (
+const PaperCard = ({ paper, idx, showCategory = true }: { paper: typeof projects[number]; idx: number; showCategory?: boolean }) => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -123,9 +123,11 @@ const PaperCard = ({ paper, idx }: { paper: typeof projects[number]; idx: number
     transition={{ delay: idx * 0.1 }}
     className="paper-card"
   >
-    <span className="text-xs font-mono opacity-40 mb-2 block uppercase tracking-wider">
-      {paper.category}{paper.date && <> &middot; {paper.date}</>}
-    </span>
+    {showCategory && (
+      <span className="text-xs font-mono opacity-40 mb-2 block uppercase tracking-wider">
+        {paper.category}{paper.date && <> &middot; {paper.date}</>}
+      </span>
+    )}
     <h3 className="text-2xl mb-3 font-semibold tracking-tight">
       <MathText text={paper.title} />
     </h3>
@@ -238,7 +240,7 @@ export default function App() {
           </h3>
           <div className="space-y-4">
             {projects.filter(p => p.category !== "Preprint").map((paper, idx) => (
-              <PaperCard key={idx} paper={paper} idx={idx} />
+              <PaperCard key={idx} paper={paper} idx={idx} showCategory={false} />
             ))}
           </div>
         </section>
