@@ -38,7 +38,7 @@ const projects = [
     category: "In Progress",
     date: null,
     collaborators: ["with Baran Çetin"],
-    description: "We present another proof of the gluing formula of the Bauer-Furuta map following Takumi Maegawa's construction using six functor formalism. ",
+    description: "The Bauer–Furuta invariant refines the Seiberg–Witten invariant of a 4-manifold to a stable cohomotopy class, and Bauer showed that it is multiplicative under connected sum. We revisit this gluing formula through Maegawa's construction of the Bauer–Furuta map in the six-functor formalism, which works with sheaves on the site of manifolds rather than finite-dimensional approximations. We show that this construction agrees with the classical Bauer–Furuta map. We then build a universal Bauer–Furuta map over the space of metrics and connections, from which both the ordinary and the families invariants are obtained by pullback. Our goal is to prove the gluing formula $\\mathrm{BF}_{X\\#Y} \\simeq \\mathrm{BF}_X \\boxtimes \\mathrm{BF}_Y$ for the universal map, naturally with respect to diffeomorphisms of $X$ and $Y$.",
     link: null,
   },
   {
