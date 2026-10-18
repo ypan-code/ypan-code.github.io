@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect, type ReactNode } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { Moon, Sun, ExternalLink, ArrowRight, Mail } from 'lucide-react';
@@ -84,8 +79,34 @@ const notes = [
   }
 ];
 
+const talks = [
+  {
+    title: "Pseudo-Anosov Reeb flows and contact structures",
+    event: "AMS Fall Eastern Sectional Meeting, Special Session on Recent Developments at the Interface of Hyperbolic Dynamics and Geometric Structures",
+    location: "George Washington University, Washington, DC",
+    date: "Oct. 2026",
+    link: "https://www.ams.org/meetings/sectional/2332_progfull.html"
+  },
+  {
+    title: "Crash course in analysis: pseudo-holomorphic curves and somewhere injectivity",
+    event: "USC Topology Seminar on Symplectic Field Theory",
+    location: "University of Southern California",
+    date: "Sep. 2026",
+    link: "https://michael-huang2001.github.io/sft-seminar/"
+  }
+];
+
 export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    () => window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
+    media.addEventListener('change', onChange);
+    return () => media.removeEventListener('change', onChange);
+  }, []);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -108,7 +129,7 @@ export default function App() {
             <div className="hidden sm:flex gap-6">
               <a href="#research" className="nav-link">Research</a>
               <a href="#notes" className="nav-link">Notes</a>
-              <a href="#about" className="nav-link">Profile</a>
+              <a href="#talks" className="nav-link">Talks</a>
               <a href="#contact" className="nav-link">Contact</a>
             </div>
             
@@ -134,10 +155,11 @@ export default function App() {
             <h1 className="text-5xl md:text-7xl mb-8">
               Yijie Pan
             </h1>
-            <p className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
-              <p>I'm a PhD candidate in University of Southern California.</p>
-              <p>I'm interested in geometry. </p>
-            </p>
+            <div className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed space-y-4">
+              <p>I'm a PhD student in mathematics at the University of Southern California, advised by Julian Chaidez.</p>
+              <p>I work in symplectic and contact topology and gauge theory.</p>
+              <p>Before USC, I studied at UC Santa Barbara and then UCLA.</p>
+            </div>
           </motion.div>
         </section>
 
@@ -229,7 +251,7 @@ export default function App() {
                     href={note.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"
+                    className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
                   >
                     <span className="uppercase tracking-widest">{note.linkLabel ?? "Read Note"}</span>
                     <ArrowRight size={12} />
@@ -244,38 +266,41 @@ export default function App() {
           </div>
         </section>
 
-        {/* Profile */}
-        <section id="about" className="section-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            <div className="space-y-8">
-              <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
-                Profile
-              </h2>
-              <div className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 space-y-6">
-                <p>
-                  I'm a third year as of April 2026. 
-                </p>
-                <p>
-                  My advisor is Professor Julian Chaidez. He is very nice and has helped me a lot. 
-                </p>
-                <p>
-                  I spent first half of my undergrad in UC Santa Barbara and the second half in UCLA. On the right you can see the gray version of the sunset in Santa Barbara. 
-                </p>
-              </div>
-            </div>
+        {/* Talks */}
+        <section id="talks" className="section-container border-t border-gray-100 dark:border-gray-800">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12">
+            Talks
+          </h2>
 
-            <div className="aspect-square bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden grayscale">
-               <img 
-                 src="./IMG_0285.jpeg" 
-                 alt="Yijie Pan" 
-                 className="w-full h-full object-cover opacity-80"
-                 onError={(e) => {
-                   // Fallback to placeholder if user hasn't successfully uploaded the image yet
-                   (e.target as HTMLImageElement).src = "https://picsum.photos/seed/math-white/800/800";
-                 }}
-                 referrerPolicy="no-referrer"
-               />
-            </div>
+          <div className="space-y-12">
+            {talks.map((talk, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-between items-start gap-4 mb-2">
+                  <h3 className="text-xl font-medium">
+                    <MathText text={talk.title} />
+                  </h3>
+                  <span className="text-xs font-mono opacity-30 whitespace-nowrap">{talk.date}</span>
+                </div>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light max-w-2xl">
+                  {talk.link ? (
+                    <a
+                      href={talk.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="border-b border-gray-300 dark:border-gray-600 hover:border-accent transition-colors"
+                    >
+                      {talk.event}
+                    </a>
+                  ) : talk.event}
+                  {talk.location && <>, {talk.location}</>}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </section>
 
