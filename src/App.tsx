@@ -93,6 +93,13 @@ const talks = [
     location: "University of Southern California",
     date: "Sep. 2026",
     link: "https://michael-huang2001.github.io/sft-seminar/"
+  },
+  {
+    title: "Contact manifolds, I",
+    event: "USC Student Topology Seminar",
+    location: "University of Southern California",
+    date: "Jan. 2024",
+    link: "https://diewildkatze.com/USCStuSeminar.html"
   }
 ];
 
@@ -156,9 +163,9 @@ export default function App() {
               Yijie Pan
             </h1>
             <div className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed space-y-4">
-              <p>I'm a PhD student in mathematics at the University of Southern California, advised by Julian Chaidez.</p>
+              <p>I'm a PhD candidate in mathematics at the University of Southern California, advised by Julian Chaidez.</p>
               <p>I work in symplectic and contact topology and gauge theory.</p>
-              <p>Before USC, I studied at UC Santa Barbara and then UCLA.</p>
+              <p>I received my B.S. from UCLA.</p>
             </div>
           </motion.div>
         </section>
