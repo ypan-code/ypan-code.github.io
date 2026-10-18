@@ -122,6 +122,13 @@ const service = [
     date: "Fall 2026",
     description: "A semester-long reading seminar on symplectic field theory following Wendl's lectures.",
     link: "https://michael-huang2001.github.io/sft-seminar/"
+  },
+  {
+    title: "USC Research Experience for Undergraduates",
+    role: "Graduate mentor",
+    date: "Summer 2026",
+    description: "Mentored the research project that led to the preprint “Polytopal counterexamples to the equality case of Viterbo's conjecture.”",
+    link: null
   }
 ];
 
