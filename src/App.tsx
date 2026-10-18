@@ -42,6 +42,14 @@ const projects = [
     link: null,
   },
   {
+    title: "Rigidity of Besse contact forms on the 5-sphere",
+    category: "In Progress",
+    date: null,
+    collaborators: ["with Baran Çetin and Michael Huang"],
+    description: "A contact form is Zoll if all of its Reeb orbits are closed with a common minimal period, and Besse if its Reeb orbits are merely all closed. Chaidez–Tanny recently proved that every Zoll contact form on the standard contact $S^5$ is strictly contactomorphic to a scaling of the standard one. We study the Besse analogue. Here the space of Reeb orbits is a symplectic 4-orbifold, which we have shown has the homology of a weighted projective plane $\\mathbb{CP}(a,b,c)$. Using orbifold Seiberg–Witten theory, we aim to complete this identification, which would show that every Besse contact form on the standard 5-sphere is strictly contactomorphic to the boundary of a rational ellipsoid. As a consequence, this would resolve a contact analogue of the Montgomery–Yang problem: a Besse Reeb flow on $(S^5, \\xi_{\\mathrm{std}})$ with isolated exceptional orbits has at most three of them.",
+    link: null,
+  },
+  {
     title: "Symplectic TQFT for stable Hamiltonian structures",
     category: "Goals",
     date: null,
