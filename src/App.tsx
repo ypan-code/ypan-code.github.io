@@ -70,6 +70,12 @@ const notes = [
     date: "Dec. 2024",
     description: "Representation theory by Cris Negron. ",
     link: "./notes/Representations_of_sp_4C.pdf"
+  },
+  {
+    title: "USC Topology Seminar on Symplectic Field Theory",
+    date: "Fall 2026",
+    description: "Co-organized with Louis-Simon Cyr and Michael Huang, following Wendl's lectures on symplectic field theory. ",
+    link: "https://michael-huang2001.github.io/sft-seminar/"
   }
 ];
 
