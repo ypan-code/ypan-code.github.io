@@ -129,14 +129,24 @@ const service = [
     role: "Co-organizer, with Louis-Simon Cyr and Michael Huang",
     date: "Fall 2026",
     description: "A semester-long reading seminar on symplectic field theory following Wendl's lectures.",
-    link: "https://michael-huang2001.github.io/sft-seminar/"
+    link: "https://michael-huang2001.github.io/sft-seminar/",
+    linkLabel: "Seminar Page"
   },
   {
     title: "USC Research Experience for Undergraduates",
     role: "Graduate mentor",
     date: "Summer 2026",
     description: "Mentored the research project that led to the preprint “Polytopal counterexamples to the equality case of Viterbo's conjecture.”",
-    link: null
+    link: null,
+    linkLabel: null
+  },
+  {
+    title: "USC Directed Reading Program",
+    role: "Graduate mentor",
+    date: "Fall 2024 – Fall 2025",
+    description: "Mentored undergraduate reading projects on knot theory and knot invariants (Fall 2024), algebraic topology and Adams's Hopf invariant one theorem (Spring 2025), and symplectic reduction and geometric invariant theory (Fall 2025, with Baran Çetin).",
+    link: "https://sites.google.com/usc.edu/uscmathdrp/home",
+    linkLabel: "Program Page"
   }
 ];
 
@@ -381,7 +391,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
                   >
-                    <span className="uppercase tracking-widest">Seminar Page</span>
+                    <span className="uppercase tracking-widest">{item.linkLabel}</span>
                     <ArrowRight size={12} />
                   </a>
                 )}
