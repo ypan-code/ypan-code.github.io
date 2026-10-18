@@ -69,13 +69,6 @@ const notes = [
     date: "Dec. 2024",
     description: "Final project for a course on representation theory with Cris Negron. Classification of the finite-dimensional irreducible representations of $\\mathfrak{sp}_4(\\mathbb{C})$.",
     link: "./notes/Representations_of_sp_4C.pdf"
-  },
-  {
-    title: "USC Topology Seminar on Symplectic Field Theory",
-    date: "Fall 2026",
-    description: "Co-organized with Louis-Simon Cyr and Michael Huang. A semester-long reading seminar on symplectic field theory following Wendl's lectures; I spoke on pseudo-holomorphic curves and somewhere injectivity.",
-    link: "https://michael-huang2001.github.io/sft-seminar/",
-    linkLabel: "Seminar Page"
   }
 ];
 
@@ -95,6 +88,13 @@ const talks = [
     link: "https://michael-huang2001.github.io/sft-seminar/"
   },
   {
+    title: "The classical Bauer-Furuta invariant",
+    event: "Gauge Theory Seminar",
+    date: "Nov. 2025",
+    link: null,
+    notes: "./notes/Bauer_Furuta_talk.pdf"
+  },
+  {
     title: "Contact manifolds, I",
     event: "USC Student Topology Seminar",
     location: "University of Southern California",
@@ -102,6 +102,58 @@ const talks = [
     link: "https://diewildkatze.com/USCStuSeminar.html"
   }
 ];
+
+const service = [
+  {
+    title: "USC Topology Seminar on Symplectic Field Theory",
+    role: "Co-organizer, with Louis-Simon Cyr and Michael Huang",
+    date: "Fall 2026",
+    description: "A semester-long reading seminar on symplectic field theory following Wendl's lectures.",
+    link: "https://michael-huang2001.github.io/sft-seminar/"
+  }
+];
+
+const sectionHeading = "text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12";
+
+const PaperCard = ({ paper, idx }: { paper: typeof projects[number]; idx: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: idx * 0.1 }}
+    className="paper-card"
+  >
+    <span className="text-xs font-mono opacity-40 mb-2 block uppercase tracking-wider">
+      {paper.category}{paper.date && <> &middot; {paper.date}</>}
+    </span>
+    <h3 className="text-2xl mb-3 font-semibold tracking-tight">
+      <MathText text={paper.title} />
+    </h3>
+
+    {paper.collaborators && paper.collaborators.length > 0 && (
+      <div className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-4 italic">
+        {paper.collaborators.join(', ')}
+      </div>
+    )}
+
+    {paper.description && (
+      <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light mb-6">
+        <MathText text={paper.description} />
+      </p>
+    )}
+
+    {paper.link && (
+      <a
+        href={paper.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 text-sm font-medium border-b border-accent/30 hover:border-accent transition-all pb-0.5"
+      >
+        Read Paper <ExternalLink size={14} />
+      </a>
+    )}
+  </motion.div>
+);
 
 export default function App() {
   const [isDarkMode, setIsDarkMode] = useState(
@@ -135,8 +187,9 @@ export default function App() {
           <div className="flex items-center gap-8">
             <div className="hidden sm:flex gap-6">
               <a href="#research" className="nav-link">Research</a>
-              <a href="#notes" className="nav-link">Notes</a>
               <a href="#talks" className="nav-link">Talks</a>
+              <a href="#notes" className="nav-link">Notes</a>
+              <a href="#service" className="nav-link">Service</a>
               <a href="#contact" className="nav-link">Contact</a>
             </div>
             
@@ -170,114 +223,29 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* Research / Papers */}
+        {/* Research */}
         <section id="research" className="section-container">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12">
-            Papers
-          </h2>
-          
-          <div className="space-y-4">
-            {projects.map((paper, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="paper-card"
-              >
-                <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-                  <div className="flex-1">
-                    <span className="text-xs font-mono opacity-40 mb-2 block uppercase tracking-wider">
-                      {paper.category}{paper.date && <> &middot; {paper.date}</>}
-                    </span>
-                    <h3 className="text-2xl mb-3 font-semibold tracking-tight">
-                      <MathText text={paper.title} />
-                    </h3>
-                    
-                    {paper.collaborators && paper.collaborators.length > 0 && (
-                      <div className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-4 italic">
-                        {paper.collaborators.join(', ')}
-                      </div>
-                    )}
+          <h2 className={sectionHeading}>Research</h2>
 
-                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light mb-6">
-                      <MathText text={paper.description} />
-                    </p>
-                    
-                    {paper.link ? (
-                      <a 
-                        href={paper.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-medium border-b border-accent/30 hover:border-accent transition-all pb-0.5"
-                      >
-                        Read Paper <ExternalLink size={14} />
-                      </a>
-                    ) : (
-                      <span className="text-sm font-light opacity-30 italic">
-                        Link not yet available
-                      </span>
-                    )}
-                  </div>
-                  <div className="shrink-0">
-                     <ArrowRight size={16} className="opacity-10 dark:opacity-20" />
-                  </div>
-                </div>
-              </motion.div>
+          <div className="space-y-4">
+            {projects.filter(p => p.category === "Preprint").map((paper, idx) => (
+              <PaperCard key={idx} paper={paper} idx={idx} />
             ))}
           </div>
-        </section>
 
-        {/* Course Notes and Projects */}
-        <section id="notes" className="section-container border-t border-gray-100 dark:border-gray-800">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12">
-            Notes and seminars
-          </h2>
-          
-          <div className="space-y-12">
-            {notes.map((note, idx) => (
-              <motion.div 
-                key={idx}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="group"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className={`text-xl font-medium ${!note.link ? 'opacity-60' : ''}`}>
-                    <MathText text={note.title} />
-                  </h3>
-                  <span className="text-xs font-mono opacity-30 whitespace-nowrap">{note.date}</span>
-                </div>
-                <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light max-w-2xl">
-                  <MathText text={note.description} />
-                </p>
-                {note.link ? (
-                  <a 
-                    href={note.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
-                  >
-                    <span className="uppercase tracking-widest">{note.linkLabel ?? "Read Note"}</span>
-                    <ArrowRight size={12} />
-                  </a>
-                ) : (
-                  <div className="mt-4 text-xs font-light opacity-20 italic">
-                    Note coming soon
-                  </div>
-                )}
-              </motion.div>
+          <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mt-16 mb-4">
+            In progress
+          </h3>
+          <div className="space-y-4">
+            {projects.filter(p => p.category !== "Preprint").map((paper, idx) => (
+              <PaperCard key={idx} paper={paper} idx={idx} />
             ))}
           </div>
         </section>
 
         {/* Talks */}
         <section id="talks" className="section-container border-t border-gray-100 dark:border-gray-800">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12">
-            Talks
-          </h2>
+          <h2 className={sectionHeading}>Talks</h2>
 
           <div className="space-y-12">
             {talks.map((talk, idx) => (
@@ -306,6 +274,90 @@ export default function App() {
                   ) : talk.event}
                   {talk.location && <>, {talk.location}</>}
                 </p>
+                {talk.notes && (
+                  <a
+                    href={talk.notes}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
+                  >
+                    <span className="uppercase tracking-widest">Talk Notes</span>
+                    <ArrowRight size={12} />
+                  </a>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Notes */}
+        <section id="notes" className="section-container border-t border-gray-100 dark:border-gray-800">
+          <h2 className={sectionHeading}>Notes</h2>
+
+          <div className="space-y-12">
+            {notes.map((note, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-between items-start gap-4 mb-4">
+                  <h3 className="text-xl font-medium">
+                    <MathText text={note.title} />
+                  </h3>
+                  <span className="text-xs font-mono opacity-30 whitespace-nowrap">{note.date}</span>
+                </div>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light max-w-2xl">
+                  <MathText text={note.description} />
+                </p>
+                <a
+                  href={note.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
+                >
+                  <span className="uppercase tracking-widest">Read Note</span>
+                  <ArrowRight size={12} />
+                </a>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Service */}
+        <section id="service" className="section-container border-t border-gray-100 dark:border-gray-800">
+          <h2 className={sectionHeading}>Service</h2>
+
+          <div className="space-y-12">
+            {service.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex justify-between items-start gap-4 mb-2">
+                  <h3 className="text-xl font-medium">{item.title}</h3>
+                  <span className="text-xs font-mono opacity-30 whitespace-nowrap">{item.date}</span>
+                </div>
+                <div className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-3 italic">
+                  {item.role}
+                </div>
+                <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light max-w-2xl">
+                  {item.description}
+                </p>
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
+                  >
+                    <span className="uppercase tracking-widest">Seminar Page</span>
+                    <ArrowRight size={12} />
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
