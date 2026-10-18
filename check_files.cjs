@@ -3,7 +3,7 @@ const path = require('path');
 
 const files = [
   'public/IMG_0285.jpeg',
-  'public/notes/Math_540_Project (3).pdf',
+  'public/notes/K_theory_Brouwer.pdf',
   'public/notes/Atiyah_Hirzebruch_s_Counterexample_to_the_Integral_Hodge_Conjecture (1).pdf',
   'public/notes/Representations_of_sp_4C.pdf'
 ];

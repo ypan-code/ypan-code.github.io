@@ -56,26 +56,27 @@ const notes = [
   {
     title: "K-theory and the Brouwer fixed point theorem",
     date: "Nov. 2023",
-    description: "Algebraic topology by Joseph Helfer. ",
-    link: "./notes/Math_540_Project (3).pdf"
+    description: "Final project for an algebraic topology course with Joseph Helfer. A proof of the Brouwer fixed point theorem using topological K-theory.",
+    link: "./notes/K_theory_Brouwer.pdf"
   },
   {
-    title: "Atiyah Hirzebruch's counterexample to the integral Hodge conjecture",
+    title: "Atiyah–Hirzebruch's counterexample to the integral Hodge conjecture",
     date: "Nov. 2023",
-    description: "Hodge theory by Joseph Helfer. ",
+    description: "Final project for a course on Hodge theory with Joseph Helfer. An exposition of Atiyah and Hirzebruch's counterexample to the integral Hodge conjecture.",
     link: "./notes/Atiyah_Hirzebruch_s_Counterexample_to_the_Integral_Hodge_Conjecture (1).pdf"
   },
   {
     title: "Representations of $\\mathfrak{sp}_4(\\mathbb{C})$",
     date: "Dec. 2024",
-    description: "Representation theory by Cris Negron. ",
+    description: "Final project for a course on representation theory with Cris Negron. Classification of the finite-dimensional irreducible representations of $\\mathfrak{sp}_4(\\mathbb{C})$.",
     link: "./notes/Representations_of_sp_4C.pdf"
   },
   {
     title: "USC Topology Seminar on Symplectic Field Theory",
     date: "Fall 2026",
-    description: "Co-organized with Louis-Simon Cyr and Michael Huang, following Wendl's lectures on symplectic field theory. ",
-    link: "https://michael-huang2001.github.io/sft-seminar/"
+    description: "Co-organized with Louis-Simon Cyr and Michael Huang. A semester-long reading seminar on symplectic field theory following Wendl's lectures; I spoke on pseudo-holomorphic curves and somewhere injectivity.",
+    link: "https://michael-huang2001.github.io/sft-seminar/",
+    linkLabel: "Seminar Page"
   }
 ];
 
@@ -198,7 +199,7 @@ export default function App() {
         {/* Course Notes and Projects */}
         <section id="notes" className="section-container border-t border-gray-100 dark:border-gray-800">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-12">
-            Class projects and notes
+            Notes and seminars
           </h2>
           
           <div className="space-y-12">
@@ -226,7 +227,7 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 text-xs font-medium opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0"
                   >
-                    <span className="uppercase tracking-widest">Read Note</span>
+                    <span className="uppercase tracking-widest">{note.linkLabel ?? "Read Note"}</span>
                     <ArrowRight size={12} />
                   </a>
                 ) : (
