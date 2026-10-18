@@ -69,6 +69,18 @@ const notes = [
     date: "Dec. 2024",
     description: "Final project for a course on representation theory with Cris Negron. Classification of the finite-dimensional irreducible representations of $\\mathfrak{sp}_4(\\mathbb{C})$.",
     link: "./notes/Representations_of_sp_4C.pdf"
+  },
+  {
+    title: "The classical Bauer-Furuta invariant",
+    date: "Nov. 2025",
+    description: "Notes for my talk in the USC Gauge Theory Seminar. The Bauer–Furuta stable cohomotopy refinement of the Seiberg–Witten invariant, and Bauer's connected sum formula.",
+    link: "./notes/Bauer_Furuta_talk.pdf"
+  },
+  {
+    title: "Pseudo-holomorphic curves and somewhere injectivity",
+    date: "Sep. 2026",
+    description: "Notes for my talk in the USC Topology Seminar on Symplectic Field Theory. A crash course in the analysis of pseudo-holomorphic curves.",
+    link: "https://drive.google.com/file/d/1i55znbfykiaarBXPVxLR1MCZ57ow_m2c/view?usp=drive_link"
   }
 ];
 
@@ -92,8 +104,7 @@ const talks = [
     event: "Gauge Theory Seminar",
     location: "University of Southern California",
     date: "Nov. 2025",
-    link: null,
-    notes: "./notes/Bauer_Furuta_talk.pdf"
+    link: null
   },
   {
     title: "Contact manifolds, I",
@@ -277,17 +288,6 @@ export default function App() {
                   ) : talk.event}
                   {talk.location && <>, {talk.location}</>}
                 </p>
-                {talk.notes && (
-                  <a
-                    href={talk.notes}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
-                  >
-                    <span className="uppercase tracking-widest">Talk Notes</span>
-                    <ArrowRight size={12} />
-                  </a>
-                )}
               </motion.div>
             ))}
           </div>
