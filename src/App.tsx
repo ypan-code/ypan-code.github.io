@@ -30,6 +30,13 @@ const projects = [
     link: "https://arxiv.org/abs/2512.12698",
   },
   {
+    title: "Polytopal counterexamples to the equality case of Viterbo's conjecture",
+    category: "Preprint",
+    collaborators: ["with Osagie Osayande and Henry Riley"],
+    description: "Viterbo's conjecture predicted that a convex body in $\\mathbb{R}^{2n}$ has systolic ratio at most 1, with equality only when its interior is symplectomorphic to a ball. Haim-Kislev and Ostrover disproved the inequality, and their argument also gives smooth counterexamples to the equality case. We show that the equality case fails already for polytopes. We construct explicit Lagrangian products of two convex polygons in $\\mathbb{R}^4$ that have systolic ratio exactly 1 but whose interiors are not symplectomorphic to a ball. Our main tool is a criterion, checkable from the normal fans of the two polygons, which guarantees that at most one systole passes through each boundary point.",
+    link: null,
+  },
+  {
     title: "On the gluing formula of the Bauer-Furuta invariant",
     category: "In Progress",
     collaborators: ["with Baran Çetin"],
