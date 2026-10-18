@@ -24,7 +24,8 @@ const MathText = ({ text }: { text: string }) => {
 const projects = [
   {
     title: "Pseudo-Anosov Reeb flows and contact structures",
-    category: "Published Paper",
+    category: "Preprint",
+    date: "Dec. 2025",
     collaborators: ["with Julian Chaidez"],
     description: "We introduce the notion of a pseudo-Anosov contact structure, which admits a type of singular contact form with pseudo-Anosov Reeb flow. We prove that contact homology detects the free homotopy classes of closed orbits of any pseudo-Anosov Reeb flow and that any pseudo-Anosov contact structure is universally tight and torsion free. Many applications are given, including new cases of the Finiteness Conjecture for transitive pseudo-Anosov flows. Our proofs use a flavor of contact homology graded by a free homotopy class of loops, defined for any contact manifold. We establish several properties of this type of contact homology that may be of independent interest.",
     link: "https://arxiv.org/abs/2512.12698",
@@ -32,6 +33,7 @@ const projects = [
   {
     title: "Polytopal counterexamples to the equality case of Viterbo's conjecture",
     category: "Preprint",
+    date: "Oct. 2026",
     collaborators: ["with Osagie Osayande and Henry Riley"],
     description: "Viterbo's conjecture predicted that a convex body in $\\mathbb{R}^{2n}$ has systolic ratio at most 1, with equality only when its interior is symplectomorphic to a ball. Haim-Kislev and Ostrover disproved the inequality, and their argument also gives smooth counterexamples to the equality case. We show that the equality case fails already for polytopes. We construct explicit Lagrangian products of two convex polygons in $\\mathbb{R}^4$ that have systolic ratio exactly 1 but whose interiors are not symplectomorphic to a ball. Our main tool is a criterion, checkable from the normal fans of the two polygons, which guarantees that at most one systole passes through each boundary point.",
     link: null,
@@ -39,6 +41,7 @@ const projects = [
   {
     title: "On the gluing formula of the Bauer-Furuta invariant",
     category: "In Progress",
+    date: null,
     collaborators: ["with Baran Çetin"],
     description: "We present another proof of the gluing formula of the Bauer-Furuta map following Takumi Maegawa's construction using six functor formalism. ",
     link: null,
@@ -46,6 +49,7 @@ const projects = [
   {
     title: "Symplectic TQFT for stable Hamiltonian structures",
     category: "Goals",
+    date: null,
     collaborators: ["with Michael Huang"],
     description: "",
     link: null,
@@ -156,7 +160,7 @@ export default function App() {
                 <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
                   <div className="flex-1">
                     <span className="text-xs font-mono opacity-40 mb-2 block uppercase tracking-wider">
-                      {paper.category}
+                      {paper.category}{paper.date && <> &middot; {paper.date}</>}
                     </span>
                     <h3 className="text-2xl mb-3 font-semibold tracking-tight">
                       <MathText text={paper.title} />
