@@ -204,6 +204,7 @@ export default function App() {
               <a href="#talks" className="nav-link">Talks</a>
               <a href="#notes" className="nav-link">Notes</a>
               <a href="#service" className="nav-link">Service</a>
+              <a href="./cv.pdf" target="_blank" rel="noopener noreferrer" className="nav-link">CV</a>
               <a href="#contact" className="nav-link">Contact</a>
             </div>
             
@@ -232,8 +233,16 @@ export default function App() {
             <div className="text-xl text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed space-y-4">
               <p>I'm a PhD candidate in mathematics at the University of Southern California, advised by Julian Chaidez.</p>
               <p>I work in symplectic and contact topology and gauge theory.</p>
-              <p>I received my B.S. from UCLA.</p>
+              <p>I received my B.S. in Mathematics from UCLA.</p>
             </div>
+            <a
+              href="./cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-medium border-b border-accent/30 hover:border-accent transition-all pb-0.5"
+            >
+              Curriculum Vitae <ExternalLink size={14} />
+            </a>
           </motion.div>
         </section>
 
